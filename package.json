@@ -1,0 +1,26 @@
+{
+  "name": "casa-core-banking-app",
+  "version": "1.0.0",
+  "description": "minimalist banking app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thelma101/CASA---banking-app.git"
+  },
+  "keywords": [
+    "core",
+    "banking"
+  ],
+  "author": "Thelma Akpata",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thelma101/CASA---banking-app/issues"
+  },
+  "homepage": "https://github.com/Thelma101/CASA---banking-app#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
