@@ -1,5 +1,4 @@
 const express = require('express');
-const createCustomerId = require('./src/controllers/createCustomerId');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
@@ -18,8 +17,8 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.post('/createCIF', createCustomerId);
-// app.use('/createCAA', currentAccountRoutes);
-// app.use('/createSBA', savingsAccountsRoutes);
+app.use('/createCAA', currentAccountRoutes);
+app.use('/createSBA', savingsAccountsRoutes);
 
 
 const PORT = process.env.PORT || 3001;

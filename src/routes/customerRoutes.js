@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const customerController = require('../controllers/customerController');
-const currentAccountController = require('../controllers/currentAccountController');
-const savingsAccountController = require('../controllers/savingsAccountController');
+const createCurrentAccount = require('../controllers/createCurrentAccount');
+const createSavingsAccount = require('../controllers/createSavingsAccount');
 
 
 router.post('/', customerController.createCustomer);
-router.post('/', currentAccountController.createCurrentAccount);
-router.post('/', savingsAccountController.createSavingsAccount);
+router.post('/', createCurrentAccount.createCurrentAccount);
+router.post('/', createSavingsAccount.createSavingsAccount);
 
 module.exports = router;
