@@ -1,24 +1,46 @@
 const express = require('express');
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require('uuid'); 
+const createError = require('http-errors'); 
 
 
-try {
-    const createCurrentAccount = async (req, res) => {
 
+const createCurrentAccount = async (req, res, next) => {
+    try {
         const { cifId, BVN, schemeType } = req.body;
-        const id = uuidv4();
+
+        if (!cifId || !BVN || !schemeType) {
+            // return next(createError(400, 'Missing required fields: cifId, BVN, or schemeType'));
+            return res.status(400).json({
+                message: ('Missing required fields: cifId, BVN, or schemeType', error),
+                console.error(error);
+
+            })
+        }
+
+        // Generate a unique account ID with the prefix "CAA"
+        const accountId = 'CAA' + uuidv4(); // Append a UUID to the "CAA" prefix for uniqueness
+
         const currentAccount = {
+            accountId,
             cifId,
             BVN,
-            schemeType
-        }
-        // TODO: Save currentAccount to database
-        res.status(201).json(currentAccount);
+            schemeType,
+            createdDate: new Date(), // Optionally include a creation date
+        };
+
+        // TODO: Save `currentAccount` to your database (you might need a database model to handle this)
+        // Example:
+        // await CurrentAccountModel.create(currentAccount);
+
+        res.status(201).json({
+            message: 'Current account created successfully',
+            data: currentAccount, // Return the created current account info
+        });
+
+    } catch (error) {
+        console.error('Error creating current account:', error);
+        next(createError(500, 'Internal Server Error')); // Use HTTP status codes for error handling
     }
-} catch (error) {
-    console.error(error);
-    res.status(500).json({
-        message: 'Error creating current account',
-        details: error.message
-    });
-}
+};
+
+module.exports = createCurrentAccount;
