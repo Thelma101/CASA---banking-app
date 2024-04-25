@@ -1,4 +1,5 @@
 const express = require('express');
+const createCustomerId = require('./src/controllers/createCustomerId');
 const app = express();
 
 app.get('/', (req, res) => {
@@ -6,7 +7,7 @@ app.get('/', (req, res) => {
 })
 
 
-app.use('/createCIF', createCIFRoutes);
+app.use('/createCIF', createCustomerId);
 app.use('/createCAA', currentAccountRoutes);
 app.use('/createSBA', savingsAccountsRoutes);
 
