@@ -1,4 +1,4 @@
-const CustomerModel = require('../models/Customer');
+// const CustomerModel = require('../models/Customer');
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
