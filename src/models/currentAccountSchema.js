@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const currentAccountSchema = require('./currentAccountSchema');
 
 
 const currentAccountSchema = new mongoose.Schema({
