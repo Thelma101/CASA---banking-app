@@ -2,9 +2,9 @@
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
+    console.log('Incoming request body:', req.body); 
     try {
         const {
-            date,
             BVN,
             title,
             firstName,
@@ -32,6 +32,8 @@ const createCustomerId = async (req, res, next) => {
         // Create and save a new customer
         const newCustomer = new CustomerModel({
             customerId,
+            date: new Date(),
+            BVN,
             title,
             firstName,
             middleName,

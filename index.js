@@ -7,7 +7,8 @@ app.get('/', (req, res) => {
 })
 
 
-app.use('/createCIF', createCustomerId);
+
+app.post('/createCIF', createCustomerId);
 // app.use('/createCAA', currentAccountRoutes);
 // app.use('/createSBA', savingsAccountsRoutes);
 
