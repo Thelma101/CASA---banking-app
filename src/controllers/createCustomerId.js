@@ -1,4 +1,6 @@
 const createCustomerId = (req, res) => {
+
+
     // Generate a random customer ID
     const customerId = Math.floor(100000 + Math.random() * 900000);
 
