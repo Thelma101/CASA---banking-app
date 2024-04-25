@@ -4,7 +4,9 @@ const createCustomerId = (req, res) => {
 
     // Return the customer ID as a JSON response
     res.json({ customerId });
+
+    res.json({ customerId, message: 'Customer ID generated successfully' });
     res.status(200).json({
-        message: 'Your customer ID is 1234567890',
+        message: `Your customer ID is ${customerId}`,
     });
 }
