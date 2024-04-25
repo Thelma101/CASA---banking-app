@@ -4,7 +4,7 @@ const validator = require('validator');
 // Define the schema for a Customer
 const customerSchema = new mongoose.Schema({
   customerId: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     min: 100000, // Ensures customer ID has a minimum value
@@ -17,8 +17,8 @@ const customerSchema = new mongoose.Schema({
   BVN: {
     type: String,
     required: true,
-    minlength: 10, // Ensures a minimum length
-    maxlength: 11, // Ensures a maximum length
+    minlength: 11,
+    maxlength: 11,
     validate: {
       validator: validator.isNumeric,
       message: 'BVN must be numeric',

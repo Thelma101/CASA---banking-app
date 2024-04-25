@@ -21,7 +21,7 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Generate customer ID
-        const customerId = Math.floor(100000 + Math.random() * 900000);
+        const customerId = 'CIF' + Math.floor(100000 + Math.random() * 900000);
 
         // Check if customer with the same CIF already exists
         // const existingCustomer = await customerDB.findOne({ customerId });
@@ -59,10 +59,10 @@ const createCustomerId = async (req, res, next) => {
             message: 'Customer ID generated successfully',
         });
 
-        } catch (error) {
-            console.error('Error creating customer ID:', error.stack);
-            next(createError(500, 'Internal Server Error'));
-        }
+    } catch (error) {
+        console.error('Error creating customer ID:');
+        next(createError(500, 'Internal Server Error', error));
+    }
 
 };
 
