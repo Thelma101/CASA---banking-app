@@ -25,7 +25,8 @@ const createCustomerId = async (req, res, next) => {
         const customerId = Math.floor(100000 + Math.random() * 900000);
 
         // Check if customer with the same CIF already exists
-        const existingCustomer = await customerDB.findOne({ customerId });
+        // const existingCustomer = await customerDB.findOne({ customerId });
+        const existingCustomer = await customerDB.find( cif => cif.customerId === customerId )
         if (existingCustomer) {
             return next(createError(409, 'Customer Identification File already exists'));
         }
