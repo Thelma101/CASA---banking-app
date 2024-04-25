@@ -21,7 +21,7 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Check if customer with the same BVN already exists
-        const existingCustomer = await customerDB.findOne({ cifID });
+        const existingCustomer = await customerDB.findOne({ customerId });
         if (existingCustomer) {
             return next(createError(409, 'Customer Identification File already exists'));
         }
@@ -31,7 +31,7 @@ const createCustomerId = async (req, res, next) => {
 
         // Create and save a new customer
         const newCustomer = new customerDB({
-            cifID: customerId,
+            customerId,
             date: new Date(),
             BVN,
             title,
