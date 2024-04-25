@@ -2,6 +2,12 @@ const express = require('express');
 const createCustomerId = require('./src/controllers/createCustomerId');
 const app = express();
 
+mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/CourseQuestHub', { useNewUrlParser: true, useUnifiedTopology: true })
+
+    .then(() => console.log('Now connected to MongoDB!'))
+    .catch(err => console.error('Something went wrong', err));
+
+
 app.get('/', (req, res) => {
     res.send('Hello World!');
 })

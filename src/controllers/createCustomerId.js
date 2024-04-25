@@ -1,8 +1,9 @@
 const customerDB = require('../models/customerDB');
+// const mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
-    console.log('Incoming request body:', req.body); 
+    console.log('Incoming request body:', req.body);
     try {
         const {
             BVN,
@@ -20,8 +21,8 @@ const createCustomerId = async (req, res, next) => {
             countryOfResidence,
         } = req.body;
 
-                // Generate customer ID
-                const customerId = Math.floor(100000 + Math.random() * 900000);
+        // Generate customer ID
+        const customerId = Math.floor(100000 + Math.random() * 900000);
 
         // Check if customer with the same CIF already exists
         const existingCustomer = await customerDB.findOne({ customerId });
