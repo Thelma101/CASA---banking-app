@@ -1,4 +1,4 @@
-const customerDB = require('../models/customerDatabase');
+const customerDB = require('../models/cifDatabase');
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {

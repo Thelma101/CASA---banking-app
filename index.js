@@ -2,6 +2,10 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
+const createCustomerId = require('./src/controllers/createCustomerId');
+const createCurrentAccount = require('./src/controllers/createCurrentAccount');
+const createSavingsAccount = require('./src/controllers/createSavingsAccount');
+
 
 mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/CourseQuestHub', { 
     useNewUrlParser: true, useUnifiedTopology: true 
@@ -17,8 +21,8 @@ app.get('/', (req, res) => {
 app.use(express.json());
 
 app.post('/createCIF', createCustomerId);
-app.use('/createCAA', currentAccountRoutes);
-app.use('/createSBA', savingsAccountsRoutes);
+app.use('/createCAA', createCurrentAccount);
+app.use('/createSBA', createSavingsAccount);
 
 
 const PORT = process.env.PORT || 3001;
