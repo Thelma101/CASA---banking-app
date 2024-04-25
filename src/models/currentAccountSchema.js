@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-// Define a schema for current accounts
+
 const currentAccountSchema = new mongoose.Schema({
     // Unique identifier for the account, with a string type and a unique constraint
     accountId: {
