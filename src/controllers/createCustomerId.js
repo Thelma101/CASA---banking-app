@@ -21,10 +21,10 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Check if customer with the same BVN already exists
-        const existingCustomer = await CustomerModel.findOne({ BVN });
-        if (existingCustomer) {
-            return next(createError(409, 'Customer with this BVN already exists'));
-        }
+        // const existingCustomer = await CustomerModel.findOne({ BVN });
+        // if (existingCustomer) {
+        //     return next(createError(409, 'Customer with this BVN already exists'));
+        // }
 
         // Generate customer ID
         const customerId = Math.floor(100000 + Math.random() * 900000);
