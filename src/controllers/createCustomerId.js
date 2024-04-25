@@ -1,41 +1,64 @@
-const createCustomerId = (req, res) => {
+const CustomerModel = require('../models/Customer');
+const createError = require('http-errors');
 
-    const createCIF = async (req, res) => {
-        try {
-            const {
-                date,
-                BVN,
-                title,
-                firstName,
-                middleName,
-                lastName,
-                DOB,
-                email,
-                phoneNumber,
-                address,
-                occupation,
-                gender,
-                maritalStatus,
-                country,
-            } = req.body;
+const createCustomerId = async (req, res, next) => {
+    try {
+        const {
+            BVN,
+            title,
+            firstName,
+            middleName,
+            lastName,
+            DOB,
+            email,
+            phoneNumber,
+            address,
+            occupation,
+            gender,
+            maritalStatus,
+            countryOfResidence,
+        } = req.body;
 
-        } catch (error) {
-            console.error('Error generating customer ID:', error);
-            res.status(500).json({ message: 'Internal Server Error' });
+        // Check if customer with the same BVN already exists
+        const existingCustomer = await CustomerModel.findOne({ BVN });
+        if (existingCustomer) {
+            return next(createError(409, 'Customer with this BVN already exists'));
         }
+
+        // Generate customer ID
+        const customerId = Math.floor(100000 + Math.random() * 900000);
+
+        // Create and save a new customer
+        const newCustomer = new CustomerModel({
+            customerId,
+            title,
+            firstName,
+            middleName,
+            lastName,
+            fullName: middleName
+                ? `${firstName} ${middleName} ${lastName}`
+                : `${firstName} ${lastName}`,
+            DOB,
+            email,
+            phoneNumber,
+            address,
+            occupation,
+            gender,
+            maritalStatus,
+            countryOfResidence,
+        });
+
+        await newCustomer.save();
+
+        res.status(200).json({
+            customerId,
+            message: 'Customer ID generated successfully',
+        });
+
+    } catch (error) {
+        console.error('Error creating customer ID:', error);
+        next(createError(500, 'Internal Server Error'));
     }
-    // Concatenate full name if middleName is present
-    const fullName = middleName
-        ? `${firstName} ${middleName} ${lastName}`
-        : `${firstName} ${lastName}`;
-    // Generate a random customer ID
-    const customerId = Math.floor(100000 + Math.random() * 900000);
+};
 
-    // Return the customer ID as a JSON response
-    res.json({ customerId });
-
-    res.json({ customerId, message: 'Customer ID generated successfully' });
-    res.status(200).json({
-        message: `Your customer ID is ${customerId}`,
-    });
-}
+module.exports = createCustomerId;
