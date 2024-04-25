@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/Thelma101/CASA---banking-app#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "mongoose": "^8.3.2"
   }
 }

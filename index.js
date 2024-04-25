@@ -1,6 +1,7 @@
 const express = require('express');
 const createCustomerId = require('./src/controllers/createCustomerId');
 const app = express();
+const mongoose = require('mongoose');
 
 mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/CourseQuestHub', { useNewUrlParser: true, useUnifiedTopology: true })
 
