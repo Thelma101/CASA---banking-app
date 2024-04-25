@@ -2,6 +2,7 @@
 const customerDB = [
     {
         id: 1,
+        cifID:123456789,
         date: "2024-04-25",
         BVN: "1234567890",
         title: "Mr.",
@@ -20,6 +21,7 @@ const customerDB = [
     },
     {
         id: 2,
+        cifID:123456788,
         date: "2024-04-25",
         BVN: "0987654321",
         title: "Ms.",
@@ -37,6 +39,7 @@ const customerDB = [
     },
     {
         id: 3,
+        cifID:123456787,
         date: "2024-04-25",
         BVN: "9876543210",
         title: "Dr.",
@@ -55,6 +58,7 @@ const customerDB = [
     },
     {
         id: 4,
+        cifID:123456786,
         date: "2024-04-25",
         BVN: "2345678901",
         title: "Mr.",
@@ -72,6 +76,7 @@ const customerDB = [
     },
     {
         id: 5,
+        cifID:123456785,
         date: "2024-04-25",
         BVN: "3456789012",
         title: "Ms.",
@@ -89,6 +94,7 @@ const customerDB = [
     },
     {
         id: 6,
+        cifID:123456784,
         date: "2024-04-25",
         BVN: "4567890123",
         title: "Mrs.",
@@ -106,6 +112,7 @@ const customerDB = [
     },
     {
         id: 7,
+        cifID:123456783,
         date: "2024-04-25",
         BVN: "5678901234",
         title: "Mr.",
