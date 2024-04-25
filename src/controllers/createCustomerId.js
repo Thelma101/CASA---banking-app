@@ -20,14 +20,14 @@ const createCustomerId = async (req, res, next) => {
             countryOfResidence,
         } = req.body;
 
-        // Check if customer with the same BVN already exists
+                // Generate customer ID
+                const customerId = Math.floor(100000 + Math.random() * 900000);
+
+        // Check if customer with the same CIF already exists
         const existingCustomer = await customerDB.findOne({ customerId });
         if (existingCustomer) {
             return next(createError(409, 'Customer Identification File already exists'));
         }
-
-        // Generate customer ID
-        const customerId = Math.floor(100000 + Math.random() * 900000);
 
         // Create and save a new customer
         const newCustomer = new customerDB({
