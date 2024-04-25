@@ -5,3 +5,8 @@ const currentAccountController = require('../controllers/currentAccountControlle
 const savingsAccountController = require('../controllers/savingsAccountController');
 
 
+router.post('/', customerController.createCustomer);
+router.post('/', currentAccountController.createCurrentAccount);
+router.post('/', savingsAccountController.createSavingsAccount);
+
+module.exports = router;
