@@ -1,4 +1,5 @@
 const express = require('express');
+// const customerDatabase = require('../models/customerDatabase');
 const { v4: uuidv4 } = require('uuid'); 
 const createError = require('http-errors'); 
 
@@ -12,13 +13,12 @@ const createCurrentAccount = async (req, res, next) => {
             // return next(createError(400, 'Missing required fields: cifId, BVN, or schemeType'));
             return res.status(400).json({
                 message: ('Missing required fields: cifId, BVN, or schemeType', error),
-                console.error(error);
 
             })
         }
 
         // Generate a unique account ID with the prefix "CAA"
-        const accountId = 'CAA' + uuidv4(); // Append a UUID to the "CAA" prefix for uniqueness
+        const accountId = 'CA' + uuidv4(); 
 
         const currentAccount = {
             accountId,

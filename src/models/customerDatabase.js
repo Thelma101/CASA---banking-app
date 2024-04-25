@@ -7,8 +7,8 @@ const customerSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    min: 100000, // Ensures customer ID has a minimum value
-    max: 999999, // Ensures customer ID has a maximum value
+    min: 100000,
+    max: 999999,
   },
   date: {
     type: Date,
