@@ -1,5 +1,4 @@
-const customerDB = require('../models/customerDB');
-// const mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/
+const customerDB = require('../models/customerDatabase');
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
@@ -26,7 +25,7 @@ const createCustomerId = async (req, res, next) => {
 
         // Check if customer with the same CIF already exists
         // const existingCustomer = await customerDB.findOne({ customerId });
-        const existingCustomer = await customerDB.find( cif => cif.customerId === customerId )
+        const existingCustomer = await customerDB.findOne({ customerId})
         if (existingCustomer) {
             return next(createError(409, 'Customer Identification File already exists'));
         }
