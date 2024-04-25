@@ -6,7 +6,7 @@ app.get('/', (req, res) => {
     res.send('Hello World!');
 })
 
-
+app.use(express.json());
 
 app.post('/createCIF', createCustomerId);
 // app.use('/createCAA', currentAccountRoutes);
