@@ -2,7 +2,6 @@ const customerDB = require('../models/customerDatabase');
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
-    console.log('Incoming request body:', req.body);
     try {
         const {
             BVN,
