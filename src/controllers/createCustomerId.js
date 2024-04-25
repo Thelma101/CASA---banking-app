@@ -21,7 +21,7 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Generate customer ID
-        const customerId = 'CIF' + Math.floor(100000 + Math.random() * 900000);
+        const customerId = `CIF${Math.floor(100000 + Math.random() * 900000)}`;
 
         // Check if customer with the same CIF already exists
         // const existingCustomer = await customerDB.findOne({ customerId });

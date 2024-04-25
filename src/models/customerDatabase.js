@@ -27,7 +27,7 @@ const customerSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    enum: ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Prof.'], // Restricts to allowed titles
+    enum: ['Mr.', 'Ms.', 'Mrs.', 'Dr.', 'Prof.'], 
   },
   firstName: {
     type: String,
