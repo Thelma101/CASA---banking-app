@@ -9,6 +9,14 @@ const createCurrentAccount = async (req, res, next) => {
     try {
         const { cifId, BVN, schemeType } = req.body;
 
+
+        function generateTimestampUUID() {
+            const timestamp = Date.now(); // Current timestamp in milliseconds
+            const randomNum = Math.floor(Math.random() * 10000); // Random number from 0 to 9999
+            return `${timestamp}${randomNum.toString().padStart(4, '0')}`; // Combines timestamp and random number
+          }
+          
+          
         if (!cifId || !BVN || !schemeType) {
             // return next(createError(400, 'Missing required fields: cifId, BVN, or schemeType'));
             return res.status(400).json({
@@ -21,7 +29,7 @@ const createCurrentAccount = async (req, res, next) => {
         const accountId = 'CA' + uuidv4(); 
 
         const currentAccount = {
-            accountId,
+            // accountId,
             cifId,
             BVN,
             schemeType,

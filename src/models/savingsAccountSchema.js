@@ -4,11 +4,11 @@ const savingsAccountSchema = require('./savingsAccountSchema');
 
 const savingsAccountSchema = new mongoose.Schema({
     // Unique identifier for the account, with a string type and a unique constraint
-    accountId: {
-        type: String,
-        required: true,
-        unique: true,
-    },
+    // accountId: {
+    //     type: String,
+    //     required: true,
+    //     unique: true,
+    // },
 
     // Customer Identification File (CIF) ID, which links the account to a customer
     cifId: {

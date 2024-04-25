@@ -21,7 +21,7 @@ const createsavingsAccount = async (req, res, next) => {
         const accountId = 'SB' + uuidv4(); 
 
         const savingsAccount = {
-            accountId,
+            // accountId,
             cifId,
             BVN,
             schemeType,
