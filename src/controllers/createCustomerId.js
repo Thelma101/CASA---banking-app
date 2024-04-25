@@ -1,4 +1,4 @@
-// const CustomerModel = require('../models/Customer');
+const customerDB = require('../models/customerDB');
 const createError = require('http-errors');
 
 const createCustomerId = async (req, res, next) => {
@@ -21,17 +21,17 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Check if customer with the same BVN already exists
-        // const existingCustomer = await CustomerModel.findOne({ BVN });
-        // if (existingCustomer) {
-        //     return next(createError(409, 'Customer with this BVN already exists'));
-        // }
+        const existingCustomer = await customerDB.findOne({ cifID });
+        if (existingCustomer) {
+            return next(createError(409, 'Customer Identification File already exists'));
+        }
 
         // Generate customer ID
         const customerId = Math.floor(100000 + Math.random() * 900000);
 
         // Create and save a new customer
-        const newCustomer = new CustomerModel({
-            customerId,
+        const newCustomer = new customerDB({
+            cifID: customerId,
             date: new Date(),
             BVN,
             title,
