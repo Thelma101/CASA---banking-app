@@ -25,7 +25,7 @@ const createCustomerId = async (req, res, next) => {
 
         // Check if customer with the same CIF already exists
         // const existingCustomer = await customerDB.findOne({ customerId });
-        const existingCustomer = await customerDB.findOne({ customerId})
+        const existingCustomer = await customerDB.findOne({ customerId })
         if (existingCustomer) {
             return next(createError(409, 'Customer Identification File already exists'));
         }
@@ -59,10 +59,11 @@ const createCustomerId = async (req, res, next) => {
             message: 'Customer ID generated successfully',
         });
 
-    } catch (error) {
-        console.error('Error creating customer ID:', error);
-        next(createError(500, 'Internal Server Error'));
-    }
+        } catch (error) {
+            console.error('Error creating customer ID:', error.stack);
+            next(createError(500, 'Internal Server Error'));
+        }
+
 };
 
 module.exports = createCustomerId;
