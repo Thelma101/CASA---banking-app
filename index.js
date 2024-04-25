@@ -8,8 +8,8 @@ app.get('/', (req, res) => {
 
 
 app.use('/createCIF', createCustomerId);
-app.use('/createCAA', currentAccountRoutes);
-app.use('/createSBA', savingsAccountsRoutes);
+// app.use('/createCAA', currentAccountRoutes);
+// app.use('/createSBA', savingsAccountsRoutes);
 
 
 const PORT = process.env.PORT || 3000;

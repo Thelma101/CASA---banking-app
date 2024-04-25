@@ -4,6 +4,7 @@ const createError = require('http-errors');
 const createCustomerId = async (req, res, next) => {
     try {
         const {
+            date,
             BVN,
             title,
             firstName,
