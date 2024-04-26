@@ -66,8 +66,8 @@ const createCustomerId = async (req, res, next) => {
         });
 
     } catch (error) {
-        console.error('Error creating customer ID:', error); // Console error for debugging
-        next(createError(500, 'Internal Server Error')); // Handle unexpected errors
+        console.error('Error creating customer ID:', error); 
+        next(createError(500, 'Internal Server Error', error)); 
     }
 };
 

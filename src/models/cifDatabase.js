@@ -43,10 +43,10 @@ const customerSchema = new mongoose.Schema({
     required: true,
     minlength: 2,
   },
-  fullName: {
-    type: String,
-    required: true,
-  },
+  // fullName: {
+  //   type: String,
+  //   required: true,
+  // },
   DOB: {
     type: Date,
     required: true,

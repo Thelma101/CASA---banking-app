@@ -7,8 +7,8 @@ const createCurrentAccount = require('./src/controllers/createCurrentAccount');
 const createSavingsAccount = require('./src/controllers/createSavingsAccount');
 
 
-mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/CourseQuestHub', { 
-    useNewUrlParser: true, useUnifiedTopology: true 
+mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/customerDatabase', {
+    useNewUrlParser: true, useUnifiedTopology: true
 })
     .then(() => console.log('Now connected to MongoDB!'))
     .catch(err => console.error('Something went wrong', err));
