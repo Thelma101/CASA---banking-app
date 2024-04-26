@@ -21,7 +21,12 @@ const createCustomerId = async (req, res, next) => {
 
         // Generate customer ID
         const customerId = `CIF${Math.floor(100000 + Math.random() * 900000)}`;
-
+        const generateTimestampUUID = () => {
+            const timestamp = Date.now();
+            const randomNum = Math.floor(Math.random() * 10000); 
+            const paddedRandomNum = randomNum.toString().padStart(6, '0'); 
+            return `CA00${paddedRandomNum}`; 
+        };
           // Example usage
           const numericUUID = generateTimestampUUID();
           console.log(numericUUID); // Outputs a unique numerical ID

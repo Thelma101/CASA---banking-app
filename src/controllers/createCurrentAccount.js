@@ -3,10 +3,10 @@ const { v4: uuidv4 } = require('uuid');
 const createError = require('http-errors');
 
 const generateTimestampUUID = () => {
-    const timestamp = Date.now(); // Current timestamp in milliseconds
-    const randomNum = Math.floor(Math.random() * 10000); // Random number from 0 to 9999
-    const paddedRandomNum = randomNum.toString().padStart(1, '0'); // Ensure 4-digit padding
-    return `CA${timestamp}${paddedRandomNum}`; // Combines prefix with timestamp and random number
+    const timestamp = Date.now();
+    const randomNum = Math.floor(Math.random() * 10000); 
+    const paddedRandomNum = randomNum.toString().padStart(6, '0'); 
+    return `CA00${paddedRandomNum}`; 
 };
 
 const createCurrentAccount = async (req, res, next) => {
@@ -17,8 +17,7 @@ const createCurrentAccount = async (req, res, next) => {
             return next(createError(400, 'Missing required fields: cifId, BVN, or schemeType'));
         }
 
-        const accountNumber = generateTimestampUUID(); // Generate unique account number
-
+        const accountNumber = generateTimestampUUID();
         const currentAccount = {
             accountNumber, // Include unique account number
             cifId,
