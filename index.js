@@ -8,7 +8,7 @@ const createSavingsAccount = require('./src/controllers/createSavingsAccount');
 const transaction = require('./src/controllers/transactions');
 
 
-const dbUri = 'mongodb://your_mongodb_connection_string';
+const dbUri = 'mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/customerDatabase';
 
 mongoose.connect(dbUri)
   .then(() => console.log('Connected to MongoDB'))
