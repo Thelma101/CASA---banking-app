@@ -74,7 +74,7 @@ const customerSchema = new mongoose.Schema({
   gender: {
     type: String,
     required: true,
-    enum: ['Male', 'Female', 'Other'], // Restricts to specific gender values
+    enum: ['Male', 'Female', 'Other'], 
   },
   maritalStatus: {
     type: String,
