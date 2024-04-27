@@ -30,7 +30,7 @@ const createCustomerId = async (req, res, next) => {
             return `CIF${paddedRandomNum}`; 
         };
 
-        const customerId = generateTimestampUUID(); // Proper variable declaration
+        const customerId = generateTimestampUUID(); 
 
         // Check if a customer with the same CIF already exists
         const existingCustomer = await customerDB.findOne({ customerId });
