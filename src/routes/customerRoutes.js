@@ -1,16 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const customerController = require('../controllers/customerController');
+const createCustomerId = require('../controllers/createCustomerId');
 const createCurrentAccount = require('../controllers/createCurrentAccount');
 const createSavingsAccount = require('../controllers/createSavingsAccount');
-const transaction = require('../controllers/transaction');
+const transaction = require('../controllers/transactions');
 const closeAccount = require('../controllers/closeAccount');
 
 
-router.post('/', customerController.createCustomer);
-router.post('/', createCurrentAccount.createCurrentAccount);
-router.post('/', createSavingsAccount.createSavingsAccount);
-router.post('./', transaction.transaction);
-router.post('./', closeAccount.closeAccount);
+router.post('/createCIF', createCustomerId.createCustomerId);
+router.post('/createCAA', createCurrentAccount.createCurrentAccount);
+router.post('/createSBA', createSavingsAccount.createSavingsAccount);
+router.post('./transaction', transaction.transaction);
+router.post('./closeAccount', closeAccount.closeAccount);
 
 module.exports = router;
