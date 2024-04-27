@@ -43,10 +43,8 @@ const createCurrentAccount = async (req, res, next) => {
         // Example:
         // await CurrentAccountModel.create(currentAccount);
 
-        res.status(201).json({
-            message: 'Current account created successfully',
-            data: currentAccount, 
-        });
+        // save to database
+        
 
     } catch (error) {
         console.error('Error creating current account:', error);
