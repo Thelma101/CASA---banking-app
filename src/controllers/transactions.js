@@ -1,7 +1,8 @@
 const express = require('express');
 const createError = require('http-errors');
-const CurrentAccount = require('../models/currentAccountSchema');
-const SavingsAccount = require('../models/savingsAccountSchema');
+const currentAccount = require('../models/currentAccountSchema');
+const savingsAccount = require('../models/savingsAccountSchema');
+const accountsDatabase = require('../models/accountsDatabaseSchema');
 
 const handleTransaction = async (req, res, next) => {
   try {
@@ -22,9 +23,9 @@ const handleTransaction = async (req, res, next) => {
     // Determine the source account type
     let sourceAccount;
     if (sourceAccountId.startsWith('CA')) {
-      sourceAccount = await CurrentAccount.findOne({ accountId: sourceAccountId });
-    } else if (sourceAccountId.startsWith('SA')) {
-      sourceAccount = await SavingsAccount.findOne({ accountId: sourceAccountId });
+      sourceAccount = await transactionDB.findOne({ accountId: sourceAccountId });
+    } else if (sourceAccountId.startsWith('SB')) {
+      sourceAccount = await transactionDB.findOne({ accountId: sourceAccountId });
     } else {
       return next(createError(400, 'Invalid source account ID format'));
     }
@@ -32,9 +33,9 @@ const handleTransaction = async (req, res, next) => {
     // Determine the target account type
     let targetAccount;
     if (targetAccountId.startsWith('CA')) {
-      targetAccount = await CurrentAccount.findOne({ accountId: targetAccountId });
-    } else if (targetAccountId.startsWith('SA')) {
-      targetAccount = await SavingsAccount.findOne({ accountId: targetAccountId });
+      targetAccount = await transactionDB.findOne({ accountId: targetAccountId });
+    } else if (targetAccountId.startsWith('SB')) {
+      targetAccount = await transactionDB.findOne({ accountId: targetAccountId });
     } else {
       return next(createError(400, 'Invalid target account ID format'));
     }
