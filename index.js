@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const createCustomerId = require('./src/controllers/createCustomerId');
 const createCurrentAccount = require('./src/controllers/createCurrentAccount');
 const createSavingsAccount = require('./src/controllers/createSavingsAccount');
+const transaction = require('./src/controllers/transaction');
 
 
 const dbUri = 'mongodb://your_mongodb_connection_string';
@@ -23,6 +24,7 @@ app.use(express.json());
 app.post('/createCIF', createCustomerId);
 app.use('/createCAA', createCurrentAccount);
 app.use('/createSBA', createSavingsAccount);
+app.use('/transaction', transaction);
 
 
 const PORT = process.env.PORT || 3001;
