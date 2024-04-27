@@ -6,8 +6,8 @@ const cifDatabase = require('../models/cifDatabase');
 const generateTimestampUUID = () => {
     const timestamp = Date.now();
     const randomNum = Math.floor(Math.random() * 10000); 
-    const paddedRandomNum = randomNum.toString().padStart(6, '0'); 
-    return `CA00${paddedRandomNum}`; 
+    const paddedRandomNum = randomNum.toString().padStart(6, '001'); 
+    return `CA${paddedRandomNum}`; 
 };
 
 const createCurrentAccount = async (req, res, next) => {
