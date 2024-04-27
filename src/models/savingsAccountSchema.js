@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-const savingsAccountSchema = require('./savingsAccountSchema');
-
 
 const savingsAccountSchema = new mongoose.Schema({
     // Unique identifier for the account, with a string type and a unique constraint
@@ -34,12 +32,21 @@ const savingsAccountSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
-    accountId: {
+    sourceAccountId: {
+        type: String, 
+        required: true, 
+        unique: true
+    },
+    targetAccountId: {
         type: String, 
         required: true, 
         unique: true
     },
     transactionType: {
+        type: String,
+        required: true,
+    },
+    amount: {
         type: String,
         required: true,
     }

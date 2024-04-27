@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const currentAccountSchema = require('./currentAccountSchema');
 
 
 const currentAccountSchema = new mongoose.Schema({
@@ -30,17 +29,25 @@ const currentAccountSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-
     balance: {
         type: Number,
         default: 0,
     },
-    accountId: {
+    sourceAccountId: {
+        type: String, 
+        required: true, 
+        unique: true
+    },
+    targetAccountId: {
         type: String, 
         required: true, 
         unique: true
     },
     transactionType: {
+        type: String,
+        required: true,
+    },
+    amount: {
         type: String,
         required: true,
     }
