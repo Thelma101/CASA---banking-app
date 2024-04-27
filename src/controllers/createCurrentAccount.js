@@ -15,7 +15,7 @@ const createCurrentAccount = async (req, res, next) => {
         const { cifId, BVN, schemeType } = req.body;
 
         if (!cifId || !BVN || !schemeType) {
-            return next(createError(400, 'Missing required fields: cifId, BVN, or schemeType'));
+            return next(createError(400, 'Missing required fields: Field must not be empty'));
         }
 
         // // Check if the customer exists in the CIF database
@@ -42,9 +42,12 @@ const createCurrentAccount = async (req, res, next) => {
         // TODO: Save `currentAccount` to your database
         // Example:
         // await CurrentAccountModel.create(currentAccount);
-
-        // save to database
         
+
+        res.status(201).json({
+            message: 'Current account created successfully',
+            CustomerInfo: currentAccount, 
+        });
 
     } catch (error) {
         console.error('Error creating current account:', error);

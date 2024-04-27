@@ -45,7 +45,7 @@ const customerSchema = new mongoose.Schema({
   },
   fullName: {
     type: String,
-    required: true,
+    required: false,
   },
   DOB: {
     type: Date,
