@@ -19,11 +19,11 @@ const createCurrentAccount = async (req, res, next) => {
 
         const accountNumber = generateTimestampUUID();
         const currentAccount = {
-            accountNumber, // Include unique account number
+            accountNumber, 
             cifId,
             BVN,
             schemeType,
-            createdDate: new Date(), // Optionally include creation date
+            createdDate: new Date(), 
         };
 
         // TODO: Save `currentAccount` to your database
@@ -32,12 +32,12 @@ const createCurrentAccount = async (req, res, next) => {
 
         res.status(201).json({
             message: 'Current account created successfully',
-            data: currentAccount, // Return created account info
+            data: currentAccount, 
         });
 
     } catch (error) {
         console.error('Error creating current account:', error);
-        return next(createError(500, 'Internal Server Error')); // Return proper status and message
+        return next(createError(500, 'Internal Server Error')); 
     }
 };
 

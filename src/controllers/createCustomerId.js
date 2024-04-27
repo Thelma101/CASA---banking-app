@@ -20,15 +20,14 @@ const createCustomerId = async (req, res, next) => {
         } = req.body;
 
         // Validate required fields
-        if (!BVN || !title || !firstName || !lastName || !email) {
+        if (!BVN || !phoneNumber || !DOB || !firstName || !lastName || !email) {
             return next(createError(400, 'Missing or invalid required fields'));
         }
 
         const generateTimestampUUID = () => {
-            const timestamp = Date.now(); // Current timestamp in milliseconds
-            const randomNum = Math.floor(Math.random() * 1000000); // 6-digit random number
-            const paddedRandomNum = randomNum.toString().padStart(6, '0'); // Fixed 6-digit padding
-            return `CIF${paddedRandomNum}`; // Generates unique identifier with prefix
+            const randomNum = Math.floor(Math.random() * 1000000); /
+            const paddedRandomNum = randomNum.toString().padStart(6, '0'); 
+            return `CIF${paddedRandomNum}`; 
         };
 
         const customerId = generateTimestampUUID(); // Proper variable declaration
@@ -42,7 +41,7 @@ const createCustomerId = async (req, res, next) => {
         // Create and save a new customer
         const newCustomer = new customerDB({
             customerId,
-            date: new Date(), // Optional creation date
+            date: new Date(), 
             BVN,
             title,
             firstName,
@@ -58,7 +57,7 @@ const createCustomerId = async (req, res, next) => {
             countryOfResidence,
         });
 
-        await newCustomer.save(); // Save to the database
+        await newCustomer.save(); 
 
         res.status(200).json({
             customerId,
