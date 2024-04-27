@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const createCustomerId = require('./src/controllers/createCustomerId');
 const createCurrentAccount = require('./src/controllers/createCurrentAccount');
 const createSavingsAccount = require('./src/controllers/createSavingsAccount');
-const transaction = require('./src/controllers/transaction');
+const transaction = require('./src/controllers/transactions');
 
 
 const dbUri = 'mongodb://your_mongodb_connection_string';
