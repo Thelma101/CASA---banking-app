@@ -30,6 +30,19 @@ const savingsAccountSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
+    balance: {
+        type: Number,
+        default: 0,
+    },
+    accountId: {
+        type: String, 
+        required: true, 
+        unique: true
+    },
+    transactionType: {
+        type: String,
+        required: true,
+    }
 });
 
 // Create a model from the schema

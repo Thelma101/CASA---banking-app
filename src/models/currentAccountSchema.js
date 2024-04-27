@@ -40,6 +40,10 @@ const currentAccountSchema = new mongoose.Schema({
         required: true, 
         unique: true
     },
+    transactionType: {
+        type: String,
+        required: true,
+    }
 });
 
 
