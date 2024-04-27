@@ -25,7 +25,7 @@ const createCustomerId = async (req, res, next) => {
         }
 
         const generateTimestampUUID = () => {
-            const randomNum = Math.floor(Math.random() * 1000000); /
+            const randomNum = Math.floor(Math.random() * 1000000); 
             const paddedRandomNum = randomNum.toString().padStart(6, '0'); 
             return `CIF${paddedRandomNum}`; 
         };
