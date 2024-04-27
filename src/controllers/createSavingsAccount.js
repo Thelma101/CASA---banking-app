@@ -18,17 +18,6 @@ const createsavingsAccount = async (req, res, next) => {
             return next(createError(400, 'Missing required fields: Field must not be empty'));
         }
 
-        // // Check if the customer exists in the CIF database
-        // const customer = await cifDatabase.findCustomerById(cifId);
-        // if (!customer) {
-        //     return next(createError(404, 'Customer not found'));
-
-        // }
-
-        // const fullName = customer.middleName
-        //     ? `${customer.firstName} ${customer.middleName} ${customer.lastName}`
-        //     : `${customer.firstName} ${customer.lastName}`;
-
         const accountNumber = generateTimestampUUID();
         const savingsAccount = {
             // fullName: customer.fullName,
@@ -39,8 +28,6 @@ const createsavingsAccount = async (req, res, next) => {
             createdDate: new Date(), 
         };
 
-        // TODO: Save `savingsAccount` to your database
-        // Example:
         // await savingsAccountModel.create(savingsAccount);
         
 

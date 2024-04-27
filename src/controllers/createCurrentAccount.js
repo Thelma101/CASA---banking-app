@@ -39,8 +39,6 @@ const createCurrentAccount = async (req, res, next) => {
             createdDate: new Date(), 
         };
 
-        // TODO: Save `currentAccount` to your database
-        // Example:
         // await CurrentAccountModel.create(currentAccount);
         
 
