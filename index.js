@@ -6,7 +6,7 @@ const createCustomerId = require('./src/controllers/createCustomerId');
 const createCurrentAccount = require('./src/controllers/createCurrentAccount');
 const createSavingsAccount = require('./src/controllers/createSavingsAccount');
 const transaction = require('./src/controllers/transactions');
-
+const closeAccount = require('./src/controllers/closeAccount');
 
 const dbUri = 'mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/customerDatabase';
 
@@ -25,6 +25,7 @@ app.post('/createCIF', createCustomerId);
 app.use('/createCAA', createCurrentAccount);
 app.use('/createSBA', createSavingsAccount);
 app.use('/transaction', transaction);
+app.use('/closeAccount', closeAccount);
 
 
 const PORT = process.env.PORT || 3001;
