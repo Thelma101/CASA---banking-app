@@ -7,19 +7,11 @@ const createCurrentAccount = require('./src/controllers/createCurrentAccount');
 const createSavingsAccount = require('./src/controllers/createSavingsAccount');
 
 
-mongoose.connect('mongodb+srv://coursequesthub:fePziw-bewbaz-5cofme@cluster0.lssixvh.mongodb.net/customerDatabase', {
-    useNewUrlParser: true, useUnifiedTopology: true
-})
-    .then(() => console.log('Now connected to MongoDB!'))
-    .catch(err => console.error('Something went wrong', err));
+const dbUri = 'mongodb://your_mongodb_connection_string';
 
-
-// Your MongoDB connection string
-// const dbUri = 'mongodb://your_mongodb_connection_string';
-
-// mongoose.connect(dbUri)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch((err) => console.error('Failed to connect to MongoDB:', err));
+mongoose.connect(dbUri)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Failed to connect to MongoDB:', err));
 
 
 app.get('/', (req, res) => {
